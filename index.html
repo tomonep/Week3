@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Yachts - Luxury Yacht Sales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Azure Yachts</h1>
+                <span class="nav-tagline">Excellence at Sea</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="#" data-page="products" class="nav-link">Collection</a></li>
+                <li><a href="#" data-page="order-history" class="nav-link">My Orders</a></li>
+                <li><a href="#" data-page="cart" class="nav-link">Cart <span class="cart-badge" id="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Homepage -->
+        <section id="home-page" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Experience Unparalleled Luxury</h1>
+                    <p class="hero-subtitle">Discover our exclusive collection of world-class yachts, crafted for those who demand excellence</p>
+                    <button class="cta-button" onclick="navigateToPage('products')">Explore Collection</button>
+                </div>
+                <div class="hero-image">
+                    <img id="hero-img" src="" alt="Luxury Yacht" />
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">Why Choose Azure Yachts</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3>Premium Selection</h3>
+                            <p>Curated collection of the world's finest yachts from renowned builders</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌊</div>
+                            <h3>Expert Service</h3>
+                            <p>Dedicated yacht specialists with decades of maritime experience</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚓</div>
+                            <h3>Global Network</h3>
+                            <p>Worldwide presence in premium marinas and yacht destinations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Products Page -->
+        <section id="products-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Our Exclusive Collection</h1>
+                    <p>Discover luxury yachts crafted for the discerning few</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <input type="text" id="search-input" placeholder="Search yachts..." class="search-input">
+                    </div>
+                    <div class="filter-group">
+                        <select id="category-filter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="Motor Yacht">Motor Yacht</option>
+                            <option value="Sailing Yacht">Sailing Yacht</option>
+                            <option value="Expedition Yacht">Expedition Yacht</option>
+                            <option value="Sport Yacht">Sport Yacht</option>
+                            <option value="Classic Yacht">Classic Yacht</option>
+                            <option value="Super Yacht">Super Yacht</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="price-filter" class="filter-select">
+                            <option value="">All Prices</option>
+                            <option value="0-1000000">Under $1M</option>
+                            <option value="1000000-5000000">$1M - $5M</option>
+                            <option value="5000000-10000000">$5M - $10M</option>
+                            <option value="10000000-999999999">Above $10M</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Page -->
+        <section id="product-detail-page" class="page">
+            <div class="container">
+                <button class="back-button" onclick="navigateToPage('products')">← Back to Collection</button>
+                <div id="product-detail-content">
+                    <!-- Product details will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Page -->
+        <section id="cart-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Your Selection</h1>
+                    <p>Review your chosen yachts</p>
+                </div>
+                <div id="cart-content">
+                    <!-- Cart items will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Page -->
+        <section id="checkout-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Complete Your Purchase</h1>
+                    <p>Secure checkout for your luxury yacht</p>
+                </div>
+                <div class="checkout-container">
+                    <div class="checkout-form">
+                        <h3>Billing Information</h3>
+                        <form id="checkout-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input type="text" id="country" name="country" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="checkout-button">Complete Purchase</button>
+                        </form>
+                    </div>
+                    <div class="order-summary" id="checkout-summary">
+                        <!-- Order summary will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order History Page -->
+        <section id="order-history-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Order History</h1>
+                    <p>Track your yacht purchases and delivery status</p>
+                </div>
+                <div id="order-history-content">
+                    <!-- Order history will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Details Page -->
+        <section id="order-details-page" class="page">
+            <div class="container">
+                <div class="order-confirmation">
+                    <div class="success-icon">✓</div>
+                    <h1>Order Confirmed</h1>
+                    <p>Thank you for your purchase! Your yacht purchase has been successfully processed.</p>
+                    <div id="order-details-content">
+                        <!-- Order details will be loaded here -->
+                    </div>
+                    <div class="order-actions">
+                        <button class="continue-button" onclick="navigateToPage('home')">Continue Shopping</button>
+                        <button class="view-orders-button" onclick="navigateToPage('order-history')">View All Orders</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <h3>Azure Yachts</h3>
+                        <p class="footer-tagline">Excellence at Sea</p>
+                        <p>Your premier destination for luxury yacht sales. We bring together the world's finest vessels with discerning buyers who appreciate excellence.</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="navigateToPage('home')">Home</a></li>
+                        <li><a href="#" onclick="navigateToPage('products')">Collection</a></li>
+                        <li><a href="#" onclick="navigateToPage('order-history')">My Orders</a></li>
+                        <li><a href="#" onclick="navigateToPage('cart')">Cart</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Yacht Sales</a></li>
+                        <li><a href="#">Charter Services</a></li>
+                        <li><a href="#">Yacht Management</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Insurance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><strong>Monaco Office</strong></p>
+                        <p>Port Hercule, Monaco 98000</p>
+                        <p>+377 93 15 06 00</p>
+                        
+                        <p><strong>Miami Office</strong></p>
+                        <p>1 Yacht Club Drive, Miami Beach, FL 33139</p>
+                        <p>+1 (305) 673-7502</p>
+                        
+                        <p><strong>Email</strong></p>
+                        <p>sales@azureyachts.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">YouTube</a>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Newsletter</h5>
+                        <p>Stay updated with our latest yacht arrivals</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email" class="newsletter-input">
+                            <button class="newsletter-button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Azure Yachts. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
