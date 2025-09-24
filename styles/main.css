@@ -72,6 +72,10 @@
      background-color: #d8d521;
 }
 
+.sanphamdamua{
+    width: 100%;
+    margin: 0;
+}
 
 /* dinh dang kich thuoc khung trai */
 .order-details .details-left{
@@ -826,6 +830,7 @@ main {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: var(--spacing-lg);
+    margin-top: 0;
 }
 
 .continue-button:hover {
@@ -836,12 +841,14 @@ main {
 .order-actions {
     display: flex;
     gap: var(--spacing-md);
+    height: 80px;
     justify-content: center;
     margin-top: var(--spacing-lg);
 }
 
 .view-orders-button {
     background: transparent;
+    padding-bottom: 0;
     color: var(--primary-gold);
     border: 2px solid var(--primary-gold);
     padding: var(--spacing-md) var(--spacing-xl);
