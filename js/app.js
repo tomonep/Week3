@@ -430,11 +430,15 @@ function renderOrderHistory() {
                             <p><strong>Contact:</strong> ${order.customer.email} • ${order.customer.phone}</p>
                         </div>
                     </div>
+                    <div>   
+                    <a href="chitietdonhang.html"><i>Order Details</i></a>
+                    </div>
                 </div>
             `).join('')}
         </div>
     `;
 }
+
 
 // Order details functionality
 function renderOrderDetails() {
