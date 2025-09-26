@@ -396,54 +396,18 @@ function renderOrderHistory() {
         <div class="order-history-list">
             ${orders.map(order => `
                 <div class="order-card">
-                    <div class="order-header">
-                        <div class="order-info">
-                            <h3>Order #${order.id}</h3>
-                            <div class="order-date">${new Date(order.date).toLocaleDateString('en-US', { 
-                                year: 'numeric', 
-                                month: 'long', 
-                                day: 'numeric',
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            })}</div>
-                        </div>
-                        <div>
-                            <div class="order-total">${cartManager.formatPrice(order.total)}</div>
-                            <div class="order-status">Confirmed</div>
-                        </div>
-                    </div>
-                    <div class="order-body">
-                        <div class="order-items">
-                            ${order.items.map(yacht => `
-                                <div class="order-item">
-                                    <img src="${getImageUrl(yacht.images[0])}" alt="${yacht.name}">
-                                    <div class="order-item-details">
-                                        <h4>${yacht.name}</h4>
-                                        <p>${yacht.brand} • ${yacht.category}</p>
-                                        <div class="order-item-price">${cartManager.formatPrice(yacht.price)}</div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--accent-silver);">
-                            <p><strong>Delivery Address:</strong> ${order.customer.address}, ${order.customer.city}, ${order.customer.country}</p>
-                            <p><strong>Contact:</strong> ${order.customer.email} • ${order.customer.phone}</p>
-                        </div>
-                    </div>
-                    
-                    
-                    <h3 class="h12345">Thông tin chi tiết đơn hàng của bạn</h3>
+                    <h3 class="h12345">Your orders details</h3>
 
                     <div class="order-body">
                     <!-- Bảng chi tiết sản phẩm -->
                     <table class="order-table" border="1" cellspacing="0" cellpadding="8" style="width:100%; margin-top:1rem; border-collapse:collapse;">
                         <thead style="background:#f5f5f5;">
                             <tr>
-                                <th>Hình ảnh</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Thương hiệu</th>
-                                <th>Loại</th>
-                                <th>Giá</th>
+                                <th>Yachts image</th>
+                                <th>Yachts name</th>
+                                <th>Brand</th>
+                                <th>Type</th>
+                                <th>Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -463,31 +427,31 @@ function renderOrderHistory() {
 
                     <!-- Bảng thanh toán -->
                     <div class="payment-section" style="margin-top:1.5rem;">
-    <table class="payment-table" style="width:100%; border-collapse:collapse; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-        <thead style="background:#ffe082;">
-            <tr>
-                <th colspan="2" style="text-align:left; padding:10px; font-size:16px;">Thông tin thanh toán</th>
-            </tr>
-        </thead>
+                        <table class="payment-table" style="width:100%; border-collapse:collapse; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                        <thead style="background:#ffe082;">
+                            <tr>
+                                <th colspan="2" style="text-align:left; padding:10px; font-size:16px;">Payment information</th>
+                            </tr>
+                        </thead>
         <tbody>
             <tr>
-                <td style="padding:8px;">Tạm tính</td>
+                <td style="padding:8px;">Sub-total</td>
                 <td style="text-align:right; padding:8px;">${cartManager.formatPrice(order.total)}</td>
             </tr>
             <tr>
-                <td style="padding:8px;">Thuế VAT (10%)</td>
-                <td style="text-align:right; padding:8px;">${cartManager.formatPrice(order.total * 0.1)}</td>
+                <td style="padding:8px;">VAT (8%)</td>
+                <td style="text-align:right; padding:8px;">${cartManager.formatPrice(order.total * 0.08)}</td>
             </tr>
             <tr>
-                <td style="padding:8px;">Phí vận chuyển (3%)</td>
+                <td style="padding:8px;">Delivery fees (3%)</td>
                 <td style="text-align:right; padding:8px;">${cartManager.formatPrice(order.total * 0.03)}</td>
             </tr>
             <tr>
-                <td style="padding:8px;">Bảo hiểm (5%)</td>
+                <td style="padding:8px;">Insurance (5%)</td>
                 <td style="text-align:right; padding:8px;">${cartManager.formatPrice(order.total * 0.05)}</td>
             </tr>
             <tr style="font-weight:bold; background:#f9f9f9;">
-                <td style="padding:8px;">Tổng cộng</td>
+                <td style="padding:8px;">Total</td>
                 <td style="text-align:right; padding:8px;">
                     ${cartManager.formatPrice(
                         order.total + (order.total * 0.1) + (order.total * 0.03) + (order.total * 0.05)
@@ -500,25 +464,21 @@ function renderOrderHistory() {
 
                     <!-- Hình thức thanh toán -->
                     <div style="margin-top:1.5rem; padding:1rem; background:#eef7ff; border-radius:8px;">
-                        <h4 style="margin-bottom:0.5rem; color:#00529b;">Hình thức thanh toán</h4>
-                        <p><strong>Tiền mặt (Cash)</strong></p>
+                        <h4 style="margin-bottom:0.5rem; color:#00529b;">Payment methold</h4>
+                        <p><strong>Cash/Bank transfer</strong></p>
                     </div>
 
                     <!-- Thông tin khách hàng -->
                     <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--accent-silver);">
-                        <p><strong>Khách hàng:</strong> ${order.customer.firstName} ${order.customer.lastName}</p>
+                        <p><strong>Full name:</strong> ${order.customer.firstName} ${order.customer.lastName}</p>
                         <p><strong>Email:</strong> ${order.customer.email}</p>
-                        <p><strong>Điện thoại:</strong> ${order.customer.phone}</p>
-                        <p><strong>Địa chỉ giao hàng:</strong> ${order.customer.address}, ${order.customer.city}, ${order.customer.country}</p>
+                        <p><strong>Phone number:</strong> ${order.customer.phone}</p>
+                        <p><strong>Address:</strong> ${order.customer.address}, ${order.customer.city}, ${order.customer.country}</p>
                     </div>
                 </div>
 
 
                     <!-- het ghi chu -->
-
-                    <div>   
-                    <a href="chitietdonhang.html"><i>Order Details</i></a>
-                    </div>
                 </div>
             `).join('')}
         </div>
