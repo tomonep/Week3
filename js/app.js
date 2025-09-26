@@ -396,7 +396,8 @@ function renderOrderHistory() {
         <div class="order-history-list">
             ${orders.map(order => `
                 <div class="order-card">
-                    <h3 class="h12345">Your orders details</h3>
+                    <h3 class="h12345">Orders details</h3>
+                    <p style="justify-content: center;text-align: center;">Order ID: <strong>#${order.id}</strong></p>
 
                     <div class="order-body">
                     <!-- Bảng chi tiết sản phẩm -->
