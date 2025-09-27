@@ -414,11 +414,11 @@ function renderOrderHistory() {
                         <tbody>
                             ${order.items.map(yacht => `
                                 <tr>
-                                    <td><img src="${getImageUrl(yacht.images[0])}" alt="${yacht.name}" style="width:80px; height:auto;"></td>
-                                    <td>${yacht.name}</td>
-                                    <td>${yacht.brand}</td>
-                                    <td>${yacht.category}</td>
-                                    <td>${cartManager.formatPrice(yacht.price)}</td>
+                                    <td class="cell-center"><img src="${getImageUrl(yacht.images[0])}" alt="${yacht.name}" class="yacht-img" style="width:80px; height:auto;"></td>
+                                    <td class="cell-center">${yacht.name}</td>
+                                    <td class="cell-center">${yacht.brand}</td>
+                                    <td class="cell-center">${yacht.category}</td>
+                                    <td class="cell-center">${cartManager.formatPrice(yacht.price)}</td>
                                 </tr>
                             `).join('')}
                         </tbody>

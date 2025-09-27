@@ -95,6 +95,20 @@
     padding-left: 10px;
 }
 
+/* dinh dang noi dung bang thanh toan */
+
+.order-table td,
+.order-table th {
+  text-align: center;      /* canh giữa ngang */
+  vertical-align: middle;  /* canh giữa dọc */
+}
+
+.yacht-img {
+  width: 100px;       /* chỉnh lại kích thước ảnh theo ý */
+  height: auto;
+  display: block;     /* ảnh thành block */
+  margin: 0 auto;     /* để auto căn giữa */
+}
 
 
 /* goc khung home */
