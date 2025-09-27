@@ -94,7 +94,11 @@ class CartManager {
             maximumFractionDigits: 0
         }).format(price);
     }
+    clearOrderHistory() {
+        localStorage.removeItem('orders');
+    }
 }
+
 
 // Initialize cart manager
 const cartManager = new CartManager();

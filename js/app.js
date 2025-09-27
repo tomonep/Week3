@@ -476,46 +476,45 @@ function renderOrderHistory() {
                         <p><strong>Phone number:</strong> ${order.customer.phone}</p>
                         <p><strong>Address:</strong> ${order.customer.address}, ${order.customer.city}, ${order.customer.country}</p>
                     </div>
-                </div>
-
-
+                </div>        
                     <!-- het ghi chu -->
                 </div>
             `).join('')}
         </div>
     `;
+    
 }
 
 
 // Order details functionality
-function renderOrderDetails() {
-    const container = document.getElementById('order-details-content');
-    if (!container || !lastOrder) return;
+// function renderOrderDetails() {
+//     const container = document.getElementById('order-details-content');
+//     if (!container || !lastOrder) return;
 
-    container.innerHTML = `
-        <div class="order-info">
-            <h3>Order #${lastOrder.id}</h3>
-            <p><strong>Order Date:</strong> ${new Date(lastOrder.date).toLocaleDateString()}</p>
-            <p><strong>Customer:</strong> ${lastOrder.customer.firstName} ${lastOrder.customer.lastName}</p>
-            <p><strong>Email:</strong> ${lastOrder.customer.email}</p>
-        </div>
+//     container.innerHTML = `
+//         <div class="order-info">
+//             <h3>Order #${lastOrder.id}</h3>
+//             <p><strong>Order Date:</strong> ${new Date(lastOrder.date).toLocaleDateString()}</p>
+//             <p><strong>Customer:</strong> ${lastOrder.customer.firstName} ${lastOrder.customer.lastName}</p>
+//             <p><strong>Email:</strong> ${lastOrder.customer.email}</p>
+//         </div>
         
-        <div class="ordered-items" style="margin-top: 2rem;">
-            <h3>Purchased Yachts</h3>
-            ${lastOrder.items.map(yacht => `
-                <div class="order-item" style="display: flex; align-items: center; padding: 1rem; background: var(--secondary-cream); border-radius: var(--radius-md); margin-bottom: 1rem;">
-                    <img src="${getImageUrl(yacht.images[0])}" alt="${yacht.name}" style="width: 80px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); margin-right: 1rem;">
-                    <div>
-                        <h4>${yacht.name}</h4>
-                        <p>${yacht.brand} • ${yacht.category}</p>
-                        <p style="color: var(--primary-gold); font-weight: 600;">${cartManager.formatPrice(yacht.price)}</p>
-                    </div>
-                </div>
-            `).join('')}
-        </div>
+//         <div class="ordered-items" style="margin-top: 2rem;">
+//             <h3>Purchased Yachts</h3>
+//             ${lastOrder.items.map(yacht => `
+//                 <div class="order-item" style="display: flex; align-items: center; padding: 1rem; background: var(--secondary-cream); border-radius: var(--radius-md); margin-bottom: 1rem;">
+//                     <img src="${getImageUrl(yacht.images[0])}" alt="${yacht.name}" style="width: 80px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); margin-right: 1rem;">
+//                     <div>
+//                         <h4>${yacht.name}</h4>
+//                         <p>${yacht.brand} • ${yacht.category}</p>
+//                         <p style="color: var(--primary-gold); font-weight: 600;">${cartManager.formatPrice(yacht.price)}</p>
+//                     </div>
+//                 </div>
+//             `).join('')}
+//         </div>
         
-        <div class="order-total" style="margin-top: 2rem; padding: 1rem; background: var(--primary-dark); color: var(--text-light); border-radius: var(--radius-md); text-align: center;">
-            <h3>Total Investment: ${cartManager.formatPrice(lastOrder.total)}</h3>
-        </div>
-    `;
-}
+//         <div class="order-total" style="margin-top: 2rem; padding: 1rem; background: var(--primary-dark); color: var(--text-light); border-radius: var(--radius-md); text-align: center;">
+//             <h3>Total Investment: ${cartManager.formatPrice(lastOrder.total)}</h3>
+//         </div>
+//     `;
+// }
