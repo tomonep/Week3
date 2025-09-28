@@ -325,9 +325,25 @@ function renderCheckout() {
             `).join('')}
         </div>
         <div style="border-top: 2px solid var(--accent-silver); margin-top: 1rem; padding-top: 1rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: var(--primary-gold);">
-                <span>Total:</span>
+            <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: 400; color: var(--primary-gold);">
+                <span>Sub-Total:</span>
                 <span>${cartManager.formatPrice(cartManager.getTotalPrice())}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: 400; color: var(--primary-gold);">
+                <span>VAT(8%):</span>
+                <span>${cartManager.formatPrice(0.08*cartManager.getTotalPrice())}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: 400; color: var(--primary-gold);">
+                <span>Delivery fees(3%):</span>
+                <span>${cartManager.formatPrice(0.03*cartManager.getTotalPrice())}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: 400; color: var(--primary-gold);">
+                <span>Insurance(5%):</span>
+                <span>${cartManager.formatPrice(0.05*cartManager.getTotalPrice())}</span>
+            </div>
+            <div style="background-color: #e2d5beff; border-radius: 5px; padding: 0 5px; margin-top:10px; display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: var(--primary-gold);">
+                <span>Total:</span>
+                <span>${cartManager.formatPrice(1.16*cartManager.getTotalPrice())}</span>
             </div>
         </div>
     `;

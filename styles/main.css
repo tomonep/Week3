@@ -722,6 +722,85 @@ main {
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xxl);
 }
+.coupon-checkout{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+.ask-coupon{
+    background-color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+}
+.ask-coupon button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color:#C9A96E;
+}
+.ask-coupon button:hover{
+    color: #6B6B6B;
+    transform: translateY(-2px);
+}
+.ask-coupon p{
+    margin-left: 50px;
+}
+.coupon-checkout .hide{
+    display: none;
+}
+.coupon-checkout .form-coupon{
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    box-shadow: var(--shadow-medium);
+    border-radius: 10px;
+}
+.form-coupon p{
+    margin-left: 50px;
+}
+.form-coupon .form-coupon-input{
+    margin-left: 50px;
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+    padding-right: 50px;
+}
+.form-coupon-input input{
+    flex: 1;
+    height: 50px;
+    border: 2px solid #E8E8E8;
+    border-radius:8px;
+    padding-left: 20px;
+    outline: none;
+}
+.form-coupon-input input:focus{
+    border: 2px solid #D4AF37;
+}
+.form-coupon-input input::placeholder{
+    font-size: 15px;
+}
+.form-coupon-input button{
+    width: 120px;
+    border: 2px solid #D4AF37;
+    border-radius:8px;
+    background-color: #D4AF37;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.form-coupon-input button:hover{
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
 
 .checkout-form {
     background: white;
@@ -729,7 +808,9 @@ main {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-light);
 }
-
+.checkout-form .required{
+    color: red;
+}
 .checkout-form h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -810,6 +891,7 @@ main {
     box-shadow: var(--shadow-light);
     margin: var(--spacing-xl) auto;
     max-width: 600px;
+    color:moccasin;
 }
 
 .success-icon {
