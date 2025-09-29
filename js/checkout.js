@@ -1,3 +1,6 @@
 function hideShow(){
     document.getElementById("form-coupon-id").classList.toggle("hide")
 };
+function hideShow2(){
+    document.getElementById("card-payment").classList.toggle("hide")
+};

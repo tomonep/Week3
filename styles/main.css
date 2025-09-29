@@ -757,6 +757,9 @@ main {
 .coupon-checkout .hide{
     display: none;
 }
+.card-payment.hide{
+    display: none;
+}
 .coupon-checkout .form-coupon{
     background-color: white;
     padding-top: 30px;
@@ -797,7 +800,7 @@ main {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.form-coupon-input button:hover{
+button:hover{
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
 }

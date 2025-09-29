@@ -325,6 +325,38 @@ function renderCheckout() {
             `).join('')}
         </div>
         <div style="border-top: 2px solid var(--accent-silver); margin-top: 1rem; padding-top: 1rem;">
+            <form action="#" method="get" style="display: flex; flex-direction: column; justify-content: center; gap:10px; font-size: 14px;">
+                <label>Payment method:</label>
+                <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input type="radio" name="payment_method" value="wire_transfer"/>Wire Transfer(Bank Transfer)</label>
+                <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input type="radio" name="payment_method" value="escrow_payment"/>Escrow Payment</label>
+                <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input onclick="hideShow2()" type="radio" name="payment_method" value="card"/>Card (Deposit only)</label>
+                <div id ="card-payment" class="card-payment hide" style="background-color: antiquewhite; padding-left: 5px; padding-right: 5px; border-radius: 5px;">
+                    <form action="#" method="post">
+                        <div class="form-pay-card" style="display: flex; flex-direction: column;">
+                            <label>Card Number</label>
+                            <input style="height:25px;" type="number" name="card-number" required/>
+                        </div>
+                        <div class="form-pay-card" style="display: flex; flex-direction: column;">
+                            <label>Name on card</label>
+                            <input style="height:25px;" type="text" name="name-on-card" required/>
+                        </div>
+                        <div class="form-pay-card" style="display: flex; flex-direction: column;">
+                            <label>Expiry date</label>
+                            <input style="height:25px;" type="date" name="expiry-date" required/>
+                        </div>
+                        <div class="form-pay-card" style="display: flex; flex-direction: column;">
+                            <label>CVV/CVC2</label>
+                            <input style="height:25px;" type="number" name="cvv" required/>
+                        </div>
+                        <p style="margin-top: 20px;" >Deposit (10%): <span>${cartManager.formatPrice(0.1*cartManager.getTotalPrice())}</span></p>
+                        <div class="form-pay-card" style="text-align: right;">
+                            <button style="margin-bottom: 5px; border-radius: 5px; height:30px; background-color:#D4AF37; cursor: pointer; border:none; width:70px;" type="submit">Deposit</button>
+                        </div>
+                    </form>
+                </div>
+            </form>
+        </div>
+        <div style="border-top: 2px solid var(--accent-silver); margin-top: 1rem; padding-top: 1rem;">
             <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: 400; color: var(--primary-gold);">
                 <span>Sub-Total:</span>
                 <span>${cartManager.formatPrice(cartManager.getTotalPrice())}</span>
@@ -341,11 +373,12 @@ function renderCheckout() {
                 <span>Insurance(5%):</span>
                 <span>${cartManager.formatPrice(0.05*cartManager.getTotalPrice())}</span>
             </div>
-            <div style="background-color: #e2d5beff; border-radius: 5px; padding: 0 5px; margin-top:10px; display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: var(--primary-gold);">
+            <div style="background-color: antiquewhite; border-radius: 5px; padding: 0 5px; margin-top:10px; display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: var(--primary-gold);">
                 <span>Total:</span>
                 <span>${cartManager.formatPrice(1.16*cartManager.getTotalPrice())}</span>
             </div>
         </div>
+        <button type="submit" form="checkout-form" class="checkout-button">Complete Purchase</button>
     `;
 
     // Setup checkout form
