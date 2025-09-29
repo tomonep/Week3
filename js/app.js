@@ -327,8 +327,8 @@ function renderCheckout() {
         <div style="border-top: 2px solid var(--accent-silver); margin-top: 1rem; padding-top: 1rem;">
             <form action="#" method="get" style="display: flex; flex-direction: column; justify-content: center; gap:10px; font-size: 14px;">
                 <label>Payment method:</label>
-                <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input type="radio" name="payment_method" value="wire_transfer"/>Wire Transfer(Bank Transfer)</label>
-                <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input type="radio" name="payment_method" value="escrow_payment"/>Escrow Payment</label>
+                <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input onclick="anotherChoose()" type="radio" name="payment_method" value="wire_transfer"/>Wire Transfer(Bank Transfer)</label>
+                <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input onclick="anotherChoose()" type="radio" name="payment_method" value="escrow_payment"/>Escrow Payment</label>
                 <label style="display: flex; gap: 5px; flex-direction:row; align-items: center;"><input onclick="hideShow2()" type="radio" name="payment_method" value="card"/>Card (Deposit only)</label>
                 <div id ="card-payment" class="card-payment hide" style="background-color: antiquewhite; padding-left: 5px; padding-right: 5px; border-radius: 5px;">
                     <form action="#" method="post">
